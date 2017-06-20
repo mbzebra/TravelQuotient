@@ -1,7 +1,7 @@
 {
-  "name": "alexa-travelq-skill",
+  "name": "alexa-currencyq-skill",
   "version": "1.0.0",
-  "description": "Alexa Skill to evaluate travel quotient",
+  "description": "Alexa Skill to evaluate world currency quotient",
   "main": "index.js",
   "dependencies": {
     "alexa-app": "^4.0.0",
@@ -11,19 +11,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mbzebra/travelq.git"
+    "url": "git+https://github.com/mbzebra/currencyq.git"
   },
   "keywords": [
     "Alexa",
     "skill",
-    "travelq",
-    "travel",
+    "currencyq",
+    "currency",
     "quotient"
   ],
   "author": "Mariswaran",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mbzebra/travelq/issues"
+    "url": "https://github.com/mbzebra/currencyq/issues"
   },
-  "homepage": "https://github.com/mbzebra/travelq#readme"
+  "homepage": "https://github.com/mbzebra/currencyq#readme"
 }

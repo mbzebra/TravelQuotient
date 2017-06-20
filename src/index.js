@@ -7,12 +7,12 @@
  * 
  * License : https://github.com/alexa/skill-sample-nodejs-trivia/blob/master/LICENSE.txt
  * 
- * Modified by : Mariswaran for Traveler Trivia
- * Creation Data : April 2017 
+ * Modified by : Mariswaran for World Currency Trivia
+ * Creation Data : June 2017 
  * 
  */
 
-var APP_ID = "amzn1.ask.skill.19e4f4bb-cb7b-4e31-8421-72ab7fd6aed9";
+var APP_ID = "amzn1.ask.skill.bfaafdf4-c41d-4ba5-9572-7e7ecddc53ef";
 
 var ANSWER_COUNT = 4; // The number of possible answers per trivia question.
 var GAME_LENGTH = 10;  // The number of questions per trivia game.
@@ -23,6 +23,7 @@ var GAME_STATES = {
 };
 
 var countries = require("./lib/countries");
+var currencies = require("./lib/currency.js");
 
 /**
  * When editing your questions pay attention to your punctuation. Make sure you use question marks or periods.
@@ -32,7 +33,7 @@ var languageString = {
     "en": {
         "translation": {
             "QUESTIONS" : loadQuestions(15),
-            "GAME_NAME" : "Traveler Trivia", // Be sure to change this for your skill.
+            "GAME_NAME" : "World Currency Trivia", // Be sure to change this for your skill.
             "HELP_MESSAGE": "I will ask you %s multiple choice questions. Respond with the number of the answer. " +
             "For example, say one, two, three, or four. To start a new game at any time, say, start game. ",
             "REPEAT_QUESTION_MESSAGE": "To repeat the last question, say, repeat. ",
@@ -59,7 +60,7 @@ var languageString = {
     "en-US": {
         "translation": {
             "QUESTIONS" : loadQuestions(240),
-            "GAME_NAME" : "Know Your Travel Quotient" // Be sure to change this for your skill.
+            "GAME_NAME" : "Know Your World Currency Trivia Challenge" // Be sure to change this for your skill.
         }
     }
 };
@@ -81,15 +82,28 @@ function loadQuestions(noOfQuestions)
         for(var ctryCtr=0; ctryCtr<4 ; ctryCtr++)
         {
             var randomNumber = getRandomInt(1,244);
-            if(countries.countries[randomNumber].capital.length>1)
+            if(countries.countries[randomNumber].currency.length>1)
                 selectedCountries.push(countries.countries[randomNumber]);
         }
-    var capitalText = "Name the Capital of " ;
+    var currencyText = "Name the Currency for  " ;
     var answers = [];
-            for(var capCtr= 0; capCtr<4 ; capCtr++)
-                answers.push(selectedCountries[capCtr].capital);
+            for(var currCtr= 0; currCtr<4 ; currCtr++)
+            {
+                if(selectedCountries[currCtr].currency.indexOf(',')==-1)
+                {
+                    var currencyDescription = currencies.currencies[0][selectedCountries[currCtr].currency];
+                    answers.push(currencyDescription);
+                }
+                else
+                {
 
-    qanda[capitalText + selectedCountries[0].name] = answers;
+                    var currencyDescriptionWithMultiple = currencies.currencies[0][selectedCountries[currCtr].currency.split(",")[0]];
+                    answers.push(currencyDescriptionWithMultiple);
+                }
+
+            }
+
+    qanda[currencyText + selectedCountries[0].name] = answers;
     qandaCollection.push(qanda);
     }
 

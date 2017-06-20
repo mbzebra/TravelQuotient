@@ -1,14 +1,15 @@
-# Alexa Travel Quotient Skill
->This Alexa skill is a game to test Travel Quotient. Do you know your Travel Quotient?
+# Alexa World Currency Quotient Skill
+>This Alexa skill is a trivia game to test World Currency Quotient. Do you know your World Currency Quotient?
 
 
 # Usage
-* Alexa ask Traveler start game
-* Alexa ask Traveler new game
-* Alexa ask Traveler help
+* Alexa ask currency q. start game
+* Alexa ask currency q. new game
+* Alexa ask currency q. help
 
-# How is Travel Quotient Calculated
-* User gets total 10 questions. Each question carries 10% weightage. If a person gets all 10 correct, he will be considered to have a Travel IQ of 100%
+# How is World Currency Quotient Calculated
+* User gets total 10 questions. Each question carries 10% weightage. If a person gets all 10 correct, he will be considered to have a World Currency IQ of 100%
 
 
 
+# currencyq
